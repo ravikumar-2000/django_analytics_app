@@ -6,8 +6,11 @@ Sales List
 
 {% block content %}
 <h2>Sales List</h2>
+<hr />
 {% for obj in object_list %}
-<a href="{% url 'sale_detail_view' obj.id %}">{{ obj }}</a>
+<div class="card m-auto p-2">
+    <a href="{{ obj.get_absolute_url }}">{{ obj }}</a>
+</div>
 {% endfor %}
 
 {% endblock content %}

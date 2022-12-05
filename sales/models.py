@@ -3,6 +3,7 @@ from django.db import models
 from products.models import Product
 from customers.models import Customer
 from profiles.models import Profile
+from django.shortcuts import reverse
 
 
 class BaseModel(models.Model):
@@ -37,6 +38,9 @@ class Sale(BaseModel):
         if self.transaction_id == "":
             self.transaction_id = str(uuid.uuid4()).replace("-", "")[:12]
         return super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse(viewname='sales:sale_detail_view', kwargs={'pk': self.pk})
 
     def __str__(self):
         return f"Sale: {self.transaction_id} | Created On: {self.created_at.strftime('%d-%m-%Y')}"

@@ -6,9 +6,33 @@ Home Page
 {% endblock title %}
 
 
-{% block content %} 
+{% block content %}
 <h2>Ravikumar Pande</h2>
-<hr/>
-{{ form|crispy }}
-<button type="submit" class="btn btn-primary mt-2">Search</button>
+<hr />
+<div class="container p-auto m-auto w-50">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary mt-2">Search</button>
+    </form>
+</div>
+
+<hr />
+
+<div class="container p-auto m-auto w-auto">
+    <h4>Sales DataFrame</h4>
+    {% if sales_df %}
+    {{ sales_df|safe }}
+    {% endif %}
+</div>
+
+<hr />
+
+<div class="container p-auto m-auto w-auto">
+    <h4>Positions DataFrame</h4>
+    {% if positions_df %}
+    {{ positions_df|safe }}
+    {% endif %}
+</div>
+
 {% endblock content %}
