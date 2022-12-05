@@ -1,0 +1,14 @@
+{% extends 'core.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Home Page
+{% endblock title %}
+
+
+{% block content %} 
+<h2>Ravikumar Pande</h2>
+<hr/>
+{{ form|crispy }}
+<button type="submit" class="btn btn-primary mt-2">Search</button>
+{% endblock content %}

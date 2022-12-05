@@ -1,0 +1,13 @@
+{% extends 'core.html' %}
+
+{% block title %}
+Sale Detail : {{ object.transaction_id }}
+{% endblock title %}
+
+{% block content %}
+<h2>Sales Detail: {{ object.transaction_id }}</h2>
+
+{{ object.id }} <br/>
+{{ object.total_price }}
+
+{% endblock content %}

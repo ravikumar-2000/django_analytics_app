@@ -12,7 +12,7 @@ class BaseModel(models.Model):
 
 class Report(BaseModel):
     name = models.CharField(max_length=120, null=False, blank=False)
-    image = models.ImageField(upload_to='reports', null=True)
+    image = models.ImageField(upload_to='reports', null=True, blank=True)
     remark = models.TextField(null=True, blank=True)
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
