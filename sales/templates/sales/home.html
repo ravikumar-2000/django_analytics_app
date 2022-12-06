@@ -7,9 +7,27 @@ Home Page
 
 
 {% block content %}
-<h2>Ravikumar Pande</h2>
+
+<style>
+    table {
+        border: 5px solid black;
+    }
+
+    thead {
+        border: 3px solid green;
+    }
+
+    td,
+    th {
+        border: 2px dashed red;
+        padding: 5px;
+        width: fit-content;
+    }
+</style>
+
+<h3>Ravikumar Pande</h3>
 <hr />
-<div class="container p-auto m-auto w-50">
+<div class="container p-auto ms-0 w-50">
     <form action="" method="POST">
         {% csrf_token %}
         {{ form|crispy }}
@@ -20,8 +38,8 @@ Home Page
 <hr />
 
 <div class="container p-auto m-auto w-auto">
-    <h4>Sales DataFrame</h4>
     {% if sales_df %}
+    <h4>Sales DataFrame</h4>
     {{ sales_df|safe }}
     {% endif %}
 </div>
@@ -29,9 +47,26 @@ Home Page
 <hr />
 
 <div class="container p-auto m-auto w-auto">
-    <h4>Positions DataFrame</h4>
     {% if positions_df %}
+    <h4>Positions DataFrame</h4>
     {{ positions_df|safe }}
+    {% endif %}
+</div>
+
+<hr />
+
+<div class="container p-auto m-auto w-auto">
+    {% if merged_df %}
+    <h4>Sales - Positions DataFrame</h4>
+    {{ merged_df|safe }}
+    {% endif %}
+</div>
+
+<hr />
+
+<div class="container p-auto m-auto w-auto">
+    {% if chart %}
+    <img src="data:image/png;base64, {{ chart|safe }}" alt="chart not available!">
     {% endif %}
 </div>
 

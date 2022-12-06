@@ -23,6 +23,10 @@ class Position(BaseModel):
         self.price = self.product.price * self.quantity
         return super().save(*args, **kwargs)
 
+    def get_sales_id(self):
+        sale = self.sale_set.first()
+        return sale.id
+
     def __str__(self):
         return f"Position Product: {self.product.name} | Created On: {self.created_at.strftime('%d-%m-%Y')}"
 
